@@ -1,5 +1,10 @@
-self.onmessage = ({data}) => {
-    var resultArray = data.map((i) => i * 10);
-    
-    postMessage(resultArray); // posting [10, 20, 30]
+self.onmessage = (ev) => {
+    var resultArray = ev.data.map((i) => i * 10);
+    var soma = 0;
+
+    resultArray.forEach((r) => {
+      soma += r;
+    });
+
+    postMessage({array: resultArray, soma: soma});
 }
